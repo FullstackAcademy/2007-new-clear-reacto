@@ -4,17 +4,22 @@ const db = require('../db')
 const User = db.define('user', {
     userName: {
         type: Sequelize.STRING,
-        allowNull: true,
-        unique: false
+        allowNull: false,
+    },
+    firstName: {
+        type: Sequelize.STRING
+    },
+    lastName: {
+        type: Sequelize.STRING
     },
     //this is for now, we need to hash it and make it more secure
     password: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     adminStatus: {
         type: Sequelize.BOOLEAN,
-        defaultValue: true
+        defaultValue: false
     },
     email: {
         type: Sequelize.STRING,

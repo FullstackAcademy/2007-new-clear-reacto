@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, {Component} from 'react';
-import {getUser} from '../redux/store'
+import {logoutUser } from '../redux/user';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 class Logout extends Component{
   constructor() {
@@ -9,34 +10,26 @@ class Logout extends Component{
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  async handleSubmit(ev){
-    ev.preventDefault()
-    const newUser = await axios.post('/api/logout')
-    this.props.getUser()
-    console.log('xxxxxxxxxxxxxxxx', newUser);
+  async handleSubmit(){
+    await this.props.logoutUser()
   }
 
   render(){
-    const {handleSubmit} = this;
     return (
-      <div>
-        <h2>Log out!</h2>
-        <form onSubmit = {handleSubmit}>
-          <button type ="submit">Log out</button>
-
-        </form>
-      </div>
-
+       <Link to="/" onClick={() => this.handleSubmit()}><ul>Log out </ul></Link>
     )
   }
 
 }
 
 export default connect(
-  null,
+  ({user}) => {return {
+    user: user.user
+    }
+  },
   (dispatch) => {
     return {
-    getUser: () => dispatch(getUser())
+    logoutUser: () => dispatch(logoutUser())
   }
 }
 )(Logout)

@@ -10,7 +10,6 @@ const User = require('./models/User')
 const Genre = require('./models/Genre')
 const CartItem = require('./models/CartItem')
 const OrderHistory = require('./models/OrderHistory')
-const itemsPurchased = require('./models/ItemsPurchased')
 const Session = require('./models/Session')
 const Address = require('./models/Address')
 
@@ -25,23 +24,19 @@ CartItem.belongsTo(User)
 User.hasMany(CartItem)
 CartItem.belongsTo(Book)
 Book.hasMany(CartItem)
+CartItem.belongsTo(OrderHistory)
+OrderHistory.hasMany(CartItem)
 
 //Order history for user & details of that order with items purchased
 OrderHistory.belongsTo(User)
 User.hasMany(OrderHistory)
-
-itemsPurchased.belongsTo(OrderHistory)
-OrderHistory.hasMany(itemsPurchased)
-
-itemsPurchased.belongsTo(Book)
-Book.hasMany(itemsPurchased)
 
 //Sessions
 Session.belongsTo(User);
 User.hasMany(Session);
 
 //Address associations to User
-Address.hasOne(User, {as: 'shippingAddress'})
+User.belongsTo(Address, {as: 'shippingAddress'})
 
 module.exports = {
   db,
@@ -50,7 +45,6 @@ module.exports = {
   User,
   Genre,
   OrderHistory,
-  itemsPurchased,
   Session,
   CartItem,
   Address

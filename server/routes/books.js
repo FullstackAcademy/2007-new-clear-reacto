@@ -11,6 +11,24 @@ router.get('/', async (req, res, next) => {
         next(err)
     }
 })
+router.get('/author/:id', async (req, res, next) => {
+    try {
+        res.send(await Book.findAll({where: { authorId: req.params.id },
+            include: [Author, Genre]}));
+    }
+    catch (err) {
+        next(err)
+    }
+})
+router.get('/genre/:id', async (req, res, next) => {
+    try {
+        res.send(await Book.findAll({where: { genreId: req.params.id },
+            include: [Author, Genre]}));
+    }
+    catch (err) {
+        next(err)
+    }
+})
 
 router.get('/:id', async (req, res, next) => {
     try {
@@ -42,10 +60,9 @@ router.post('/', async (req, res, next) => {
     }
 })
 
-router.put('/:bookId', async (req, res, next) => {
+router.put('/update/:bookId', async (req, res, next) => {
     try {
         const book = await Book.findByPk(req.params.bookId);
-
         let keys = Object.keys(req.body)
 
         if (keys.includes('authorFirstName') || keys.includes('authorLastName')) {
