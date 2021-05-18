@@ -1,0 +1,938 @@
+/* Color palette for app :
+  #222831
+  #30475e
+  #c1a57b
+  #ececec
+*/
+
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI",Arial,sans-serif;
+}
+
+body {
+  background:  white;
+  margin: 0;
+  padding: 0;
+}
+main{
+  margin-top: 60px;
+}
+:root {
+  --primaryColor: #c1a57b;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+}
+
+button {
+  color: black;
+  border-radius: 4px;
+  border-width: 1px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: white;
+}
+
+.hidden { display:none; }
+/* ------------------------- */
+/* Navigation Bar Selectors */
+
+nav {
+  top: 0;
+  z-index: 1;
+  position: fixed;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: #30475e;
+}
+.fa-cart-plus{
+  color: white;
+}
+.loginContainer > li {
+  margin: 0.5rem;
+}
+.logoutContainer > h4 {
+  color: white;
+  margin: 0.5rem;
+  text-transform: capitalize;
+}
+.logoutContainer > div > form > button {
+  cursor: pointer;
+  background: white;
+  margin: 0 1rem 0.5rem 0.5rem;
+}
+.logoutContainer > div > form > button:hover {
+  background: rgb(167, 167, 167);
+}
+
+#myUL {
+  z-index: 3;
+  top: 47px;
+  left: 37%;
+  height: 7rem;
+  width: 25rem;
+  position: fixed;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+}
+#admin_search {
+  z-index: 3;
+  top: 180px;
+  left: 24%;
+  height: 7rem;
+  width: 30rem;
+  position: fixed;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+}
+#admin_search >a {
+  text-decoration: none;
+  margin-top: -1px;
+  border: solid black 1px;
+  padding: 12px;
+  background-color: rgb(236, 235, 235);
+  color: black;
+  display: block;
+}
+#admin_search >a:hover {
+  background-color: rgb(138, 136, 136);
+}
+
+#myUL >a {
+  text-decoration: none;
+  margin-top: -1px;
+  border: solid black 1px;
+  padding: 12px;
+  background-color: rgb(197, 196, 196);
+  color: black;
+  display: block;
+}
+#myUL >a:hover {
+  background-color: rgb(121, 120, 120);
+}
+
+.navLink {
+  color: white;
+  margin: 0.5rem;
+  text-decoration: none;
+}
+
+.searchDropdown {
+  border-radius: 4px 0px 0px 4px;
+  padding-left: 4px;
+  padding-right: 8px;
+}
+
+#navLeftContainer {
+  width: 15rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+#navRightContainer {
+  width: 10rem;
+  display: flex;
+  justify-content: space-around;
+}
+#navCenterContainer > form {
+  width: 20rem;
+  display: flex;
+  justify-content: space-around;
+}
+#navCenterContainer > form > button{
+  padding: 8px;
+  border-radius: 0px 4px 4px 0px;
+}
+#navCenterContainer > form > input{
+  width: 90%;
+}
+#navCenterContainer{
+  width: 25rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.cart-items {
+  padding-right: 1rem;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background:  rgba(255, 136, 0, 0.835);
+  padding: 0 5px;
+  margin-right: 1rem;
+  border-radius: 30%;
+  color:white;
+}
+.nav-icon {
+  font-size: 1.5rem;
+}
+.cart-btn {
+  padding-right: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+/* ------------------------- */
+/* Book Page Selectors */
+.bookContainer {
+  width: 17rem;
+  padding: 1rem;
+  align-items: center;
+}
+.products-center {
+  max-height: calc(100vh - 60px);
+  padding-top: 6rem;
+  top: 60px;
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+.img-container {
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.bag-btn {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  transition: var(--mainTransition);
+  transform: translateX(101%);
+  cursor: pointer;
+}
+.in-bag-btn{
+  position: absolute;
+  top: 70%;
+  right: 0;
+  background:  #f1bd8b;
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  transition: var(--mainTransition);
+  transform: translateX(101%);
+  cursor: pointer;
+}
+.bag-btn:hover {
+  color: var(--mainWhite);
+}
+.in-bag-btn:hover{
+  color: var(--mainWhite);
+}
+.img-container:hover .book-img {
+  opacity: 0.5;
+}
+.book-img {
+  margin-left: 2rem ;
+  display: block;
+  height: 15rem;
+  width: 11rem;
+  min-height: 12rem;
+  transition: var(--mainTransition);
+}
+.img-container:hover .bag-btn   {
+  transform: translateX(0);
+}
+.img-container:hover .in-bag-btn{
+  transform: translateX(0);
+}
+.bookContainer h3 {
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin: 0.5rem;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+}
+
+.bookContainer h4 {
+  margin: 0.5rem;
+  letter-spacing: var(--mainSpacing);
+  color: #c1a57b;
+  text-align: center;
+}
+/* --------------------------------- */
+/* --------------- Cart ---------------- */
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  z-index: 3;
+  background: rgb(231, 226, 221);
+  padding: 1.5rem;
+  transition: var(--mainTransition);
+  transform: translateX(100%);
+}
+.showCart {
+  transform: translateX(0);
+}
+.transparentBcg {
+  visibility: visible;
+}
+@media screen and (min-width: 768px) {
+  .cart {
+    width: 30vw;
+    min-width: 450px;
+  }
+}
+
+.close-cart {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.cart h2 {
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 2rem;
+}
+/*---------- Cart Item -------------------- */
+.cart-item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.cart-item img {
+  width: 75px;
+  height: 90px;
+}
+#grayDownBtn{
+  color: grey;
+}
+.cart-item h4 {
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.cart-item h5 {
+  margin: 0.5rem 0;
+  letter-spacing: var(--mainSpacing);
+}
+.item-amount {
+  text-align: center;
+}
+.remove-item {
+  color: grey;
+  cursor: pointer;
+}
+.fa-chevron-up,
+.fa-chevron-down {
+  color: orange;
+  cursor: pointer;
+}
+.checkout{
+  width: 7rem;
+  height: 2rem;
+  background: orange;
+  color: black;
+  cursor: pointer;
+}
+/*---------- End of Cart Item -------------------- */
+
+.cart-footer {
+  margin-top: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+}
+.cart-footer h3 {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+/* --------------- End of Cart ---------------- */
+/* ----------------SingleBook------------------ */
+
+.singleBookContainer{
+  align-items: center;
+  width: 80%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.singleBookMain{
+  display: grid;
+  align-items: center;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.singleBook-description > p{
+  width: 70%;
+  margin-left: 1rem;
+}
+.singleBook-description {
+  align-items: center;
+  width: 80%;
+  border: solid black 2px;
+}
+.bag-btn-sigleBook {
+  padding: 1rem;
+  margin-left: 2rem;
+  position: absolute;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  cursor: pointer;
+}
+.bag-btn-sigleBook:hover {
+  color: white;
+}
+
+.singleBookContainer h3 {
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-left: 2rem;
+  letter-spacing: var(--mainSpacing);
+}
+
+.singleBookContainer h4 {
+  text-transform: capitalize;
+  margin-left: 2rem;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+}
+.singleBook-img{
+ width: 100%;
+}
+/* ---------------- End of Single Book------------------ */
+/* ---------------- Home Page ------------------ */
+
+/*'mark-eder-R9OS29xJb-8-unsplash.jpg'*/
+.home {
+  background-image: url('gantaro-9eTP3GF4liQ-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.picDiv {
+  text-align: center;
+  margin-top: 3rem;
+  min-height: 30vh;
+}
+
+.pic{
+  height: 350px;
+  width: 350px;
+}
+
+.bestSeller {
+  text-align: center;
+  color: #222831 ;
+}
+.bestSellerH2 {
+  text-align: center;
+  text-shadow: 2px 1px #c1a57b
+}
+.onSale {
+  color: red;
+  text-decoration: line-through;
+}
+
+  .homePageCon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+/* ---------------- End of Home Page------------------ */
+/* ----------------Sign Up------------------ */
+
+.borderTop{
+  border-style: inset;
+  margin: 2rem;
+}
+#signUpForm{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  position: relative;
+  background: #FFFFFF;
+  max-width: 65%;
+  margin: 0 auto 100px;
+  padding: 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+#signUpr_rInfo{
+  display: flex;
+  flex-direction: column;
+}
+
+#signUpAddress{
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+.signUpDrop {
+  outline: 0;
+  background: #f2f2f2;
+  width: 30%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.signUpInput {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+#signUpSubmit {
+  text-transform: uppercase;
+  outline: 0;
+  background: #30475e;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ----------------End of Sign Up------------------ */
+/* ----------------Log In------------------ */
+
+.logInInput{
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  font-size: 14px;
+}
+
+#logInButton{
+  text-transform: uppercase;
+  background: #30475e;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+#logInForm{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  position: relative;
+  background: #FFFFFF;
+  max-width: 65%;
+  margin: 0 auto 100px;
+  padding: 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+/* ----------------End of Log In---------*/
+/* -------- Admin Page ------- */
+.input-icon {
+  position: relative;
+}
+
+.input-icon > i {
+  position: absolute;
+  display: block;
+  transform: translate(0, -50%);
+  top: 50%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
+}
+
+.input-icon > input {
+  padding-left: 25px;
+  padding-right: 0;
+}
+
+.adminCloseEnded {
+  display: flex;
+  flex-direction: row;
+}
+
+.adminChecks > label {
+  width: 90%;
+}
+
+.adminChecks > input {
+  width: 10%
+}
+
+.adminNums > label {
+  width: 60%;
+}
+
+.adminNums > input {
+  width: 40%;
+
+}
+
+.adminNums > #inStock {
+  margin-right: 1rem;
+}
+
+.adminLink {
+  color: #c1a57b;
+  text-decoration: none;
+}
+
+.adminNavBar {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.selectedAdmin {
+  text-decoration: underline;
+}
+
+.adminNavElement {
+  cursor: pointer;
+}
+#adminSearchForm{
+  display:flex;
+}
+/* ----------------End of Admin Page---------*/
+/* -------- Footer ------- */
+
+footer {
+    background-color: #222831;
+    font-family: "Lato", sans-serif;
+    padding: 85px 0 285px 0;
+}
+
+.footer-inner {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 120px;
+    max-width: 1170px;
+    position: relative;
+}
+
+.footer-item {
+    float: left;
+    margin: 0 7.2% 0 0;
+}
+
+
+.footer-item:nth-of-type(7) {
+    float: right;
+    margin-right: 0;
+}
+
+.footer-button {
+    color: white;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    transition: 1s;
+    transition-delay: .2s;
+    padding: 14px;
+}
+
+.footer-button:after {
+    position: absolute;
+    top: 45px;
+    right: 13px;
+    background-color: white;
+    height: 1px;
+    width: 86px;
+    transition: .6s;
+}
+
+.footer-button:hover {
+    color: black;
+    background-color: white;
+}
+
+.footer-button:hover:after {
+    width: 112px;
+    right: 0px;
+}
+
+.footer_h1 {
+    font-weight: 900;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.footer_h2 {
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 13px;
+    color: #d1d1d1;
+    letter-spacing: 0.03em;
+    padding: 15px 0 0 0;
+}
+
+.color {
+    color: white;
+    font-weight: 400;
+}
+
+.footer_h3 {
+    font-weight: 400;
+    font-size: 13px;
+    color: white;
+    margin: 0;
+    padding-bottom: 9px;
+    letter-spacing: 0.03em;
+}
+
+
+
+.footer_ul {
+    line-height: 1.8;
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer_li {
+    font-weight: 300;
+    font-size: 13px;
+    color: #d1d1d1;
+    letter-spacing: 0.03em;
+}
+
+.footer_p {
+    font-weight: 300;
+    font-size: 13px;
+    padding: 0;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+}
+
+.footer_a {
+
+    color: #d1d1d1;
+}
+
+a:hover {
+    color: white;
+}
+
+
+.footer-inner:after {
+    content: "© 2020 Sahara. All Rights Reserved.";
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    font-size: 13px;
+    color: #d1d1d1;
+    position: absolute;
+    top: 260px;
+    clear: both;
+    display: block;
+}
+
+
+
+/* ----------------End of Footer------------------ */
+/* ------------------Sanduich Btn----------------- */
+.navbar__btn{
+  /* align-self: center; */
+  border:  2px solid white;
+  cursor: pointer;
+}
+.bar1,.bar2,.bar3{
+  width: 15px;
+  height: 2px;
+  margin: 3px;
+  background: white;
+  transition: all 2s ease;
+}
+.change .bar1{
+  transform: rotate(-45deg) translate(-3px, 4px);
+}
+.change .bar2{
+ opacity: 0;
+}
+.change .bar3{
+ transform: rotate(45deg) translate(-3px, -4px);
+}
+.user_menu {
+  position: fixed;
+  top: 60px;
+  width: 30%;
+  background: rgb(231, 226, 221);
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+.user_menu > ul {
+  margin: 0;
+  padding: 1rem;
+  cursor: pointer;
+  border-top: 1px solid black;
+  transition: all 1s ease;
+}
+.user_menu > a > ul {
+  margin: 0;
+  padding: 1rem;
+  cursor: pointer;
+  border-top: 1px solid black;
+  transition: all 1s ease;
+  text-decoration: none;
+  color: black;
+
+}
+.user_menu > h4 {
+  padding-left: 1rem;
+  text-decoration: none;
+  color: black;
+}
+.user_menu > ul:hover {
+  transition: all 1s ease;
+  padding-left: 1.5rem;
+  background: rgb(160, 159, 159);
+}
+.user_menu > a > ul:hover {
+  transition: all 1s ease;
+  padding-left: 1.5rem;
+  background: rgb(160, 159, 159);
+}
+.user_menu > a:link {
+  text-decoration: none;
+}
+.search_user {
+  display: flex;
+  padding: 1rem;
+}
+.search_user > form  {
+  margin-left: 1rem;
+  width: 70%;
+  height: 2rem;
+
+}
+.search_user > button {
+  width: 30%;
+  height: 2rem;
+  background: rgba(223, 219, 219, 0.87);
+}
+.search_user > button:hover {
+  cursor: pointer;
+  background: rgb(151, 150, 150);
+}
+.search_user > form > input{
+  width: 100%;
+  height: 100%;
+}
+.user_as_admin{
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem;
+}
+.user_as_admin> button{
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background: rgba(253, 1, 1, 0.479);
+}
+.user_as_admin> li{
+  font-size: 25px;
+}
+.user_as_admin> button:hover{
+  cursor: pointer;
+  background: rgb(250, 26, 26);
+}
+.show_user_menu {
+  height: 0;
+  transition: all 1s ease;
+}
+/* ------------------End of Sanduich Btn----------------- */
+/* ------------------Order History----------------- */
+#orderHistoryContainer{
+  border-radius: 10px;
+  margin:  0 10% 0 10%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#orderHistoryHeader {
+  margin-top: 3rem;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    justify-content: space-around;
+    background: #222831;
+    color: white;
+}
+
+
+#orderHistoryBody{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ------------------End of Order History----------------- */
+#ganreList{
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  background: #f2f2f2;
+  margin-bottom: 1rem;
+  border: none;
+}
+.deleteBookBtn{
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background: rgba(253, 1, 1, 0.479);
+}
+.deleteBookBtn:hover{
+  cursor: pointer;
+  background: rgb(250, 26, 26);
+}
+
+#editBook{
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background: rgba(1, 140, 253, 0.349);
+}
+#editBook:hover{
+  cursor: pointer;
+  background: rgba(1, 140, 253, 0.746);
+}
+.smallSize {
+  width: 250px;
+  height: 250px;
+}
